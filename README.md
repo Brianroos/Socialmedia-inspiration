@@ -1,1 +1,1 @@
-# socialmedia-inspiration
+# Social media inspiration
