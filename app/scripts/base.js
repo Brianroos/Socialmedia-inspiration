@@ -1,5 +1,6 @@
 $(function() {
   // connFacebook();
   connTwitter();
+  connInstagram();
 
 });
