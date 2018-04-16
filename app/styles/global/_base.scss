@@ -1,0 +1,18 @@
+$white: #FFFFFF;
+$black: #000000;
+
+$transition: all .2s ease;
+$transition-ease: ease;
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  outline: none;
+}
+
+html, body {
+  height: 100%;
+}
+body {
+  background: $white;
+}

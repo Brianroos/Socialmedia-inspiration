@@ -1,0 +1,11 @@
+@import 'global/responsive';
+@import '../../node_modules/foundation-sites/scss/foundation';
+@include foundation-global-styles;
+@include foundation-grid;
+@import '../../node_modules/bourbon/app/assets/stylesheets/bourbon';
+
+@import 'global/fonts';
+@import 'global/mixins';
+@import 'global/base';
+@import 'global/typography';
+@import 'global/buttons';
