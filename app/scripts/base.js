@@ -1,6 +1,8 @@
 $(function() {
+  var arr = [];
+
   // connFacebook();
-  connTwitter();
-  connInstagram();
+  connTwitter(arr, '%23journalistiek', 10);
+  connInstagram(arr, 'journalistiek');
 
 });
