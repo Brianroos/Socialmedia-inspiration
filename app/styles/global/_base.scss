@@ -1,7 +1,17 @@
 $white: #FFFFFF;
-$black: #000000;
+$black: #141414;
 
-$transition: all .2s ease;
+$twitter: #1DA1F2;
+$instagram: #C13584;
+
+$font-primary: 'Proxima Nova', sans-serif;
+
+$font-regular: 300;
+$font-semibold: 400;
+$font-bold: 600;
+$font-extrabold: 800;
+
+$transition: all .3s ease;
 $transition-ease: ease;
 
 * {
@@ -15,4 +25,6 @@ html, body {
 }
 body {
   background: $white;
+  font-family: $font-primary;
+  color: $black;
 }

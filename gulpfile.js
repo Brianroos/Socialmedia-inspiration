@@ -65,6 +65,12 @@
     components_dest: directories.dest + '/components'
   },
   assets: {
+    fonts: {
+      src: [
+        directories.src + '/assets/fonts/**/*'
+      ],
+      dest: directories.dest + '/assets/fonts/'
+    },
     images: {
       src: [
         directories.src + '/assets/images/**/*.png',
@@ -113,7 +119,13 @@
   });
 
   gulp.task('assets:all', function() {
-    return gulp.start('assets:images');
+    return gulp.start('assets:fonts', 'assets:images');
+  });
+  // Export the fonts to their appropriate locations
+  gulp.task('assets:fonts', function () {
+    return gulp.src(paths.assets.fonts.src)
+      .pipe(newer(paths.assets.fonts.dest))
+      .pipe(gulp.dest(paths.assets.fonts.dest));
   });
   // Optimizes Images (also SVG, but not using that extension)
   gulp.task('assets:images', function () {
@@ -180,6 +192,7 @@
     gulp.watch(['app/views/modules/**/scss/*.scss', 'app/styles/modules/*.scss', 'app/styles/global/*.scss', 'app/styles/*.scss', paths.styles.src, directories.src + '/scss/*.scss'], ['styling']);
     gulp.watch([paths.scripts.src, paths.scripts.components, directories.src + '/scripts/*.js'], ['js']);
     gulp.watch(['app/views/*.handlebars', 'app/views/modules/**/*.handlebars', 'app/views/elements/*.handlebars', 'app/views/modules/**/*.html', 'app/views/modules/**/*.php', 'app/views/*.html', 'app/views/*.php'], ['html']);
+    gulp.watch([paths.assets.fonts.src], ['assets:fonts']);
     gulp.watch([paths.assets.images.src], ['assets:images']);
   });
 
