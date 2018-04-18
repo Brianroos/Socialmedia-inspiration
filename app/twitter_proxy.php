@@ -17,10 +17,9 @@ class TwitterProxy {
   *  @param  string  $consumer_secret            Consumer secret             ('API secret' on https://apps.twitter.com)
   *  @param  string  $user_id                    User id (http://gettwitterid.com/)
   *  @param  string  $screen_name                Twitter handle
-  *  @param  string  $count                      The number of tweets to pull out
   */
-  public function __construct($oauth_access_token, $oauth_access_token_secret, $consumer_key, $consumer_secret, $user_id, $screen_name, $count = 5) {
-    $this->config = array_merge($this->config, compact('oauth_access_token', 'oauth_access_token_secret', 'consumer_key', 'consumer_secret', 'user_id', 'screen_name', 'count'));
+  public function __construct($oauth_access_token, $oauth_access_token_secret, $consumer_key, $consumer_secret, $user_id, $screen_name) {
+    $this->config = array_merge($this->config, compact('oauth_access_token', 'oauth_access_token_secret', 'consumer_key', 'consumer_secret', 'user_id', 'screen_name'));
   }
 
   private function buildBaseString($baseURI, $method, $params) {

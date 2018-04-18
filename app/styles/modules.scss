@@ -8,7 +8,7 @@
 
     h4 {
       font-family: $font-primary;
-      font-weight: $font-semibold;
+      font-weight: $font-bold;
       font-size: 18px;
       color: $black;
       margin-bottom: 20px;
@@ -28,6 +28,8 @@
           font-size: 14px;
           color: $black;
           font-weight: 300;
+          line-height: 22px;
+          vertical-align: top;
         }
       }
     }
@@ -218,9 +220,9 @@
 
             p {
               font-size: 16px;
-              font-weight: $font-semibold;
+              font-weight: $font-bold;
               color: $black;
-              line-height: 40px;
+              line-height: 38px;
               display: inline-block;
               margin-bottom: 0;
               vertical-align: top;
@@ -228,11 +230,11 @@
           }
           .details {
             float: right;
-            line-height: 40px;
+            line-height: 38px;
 
             > div {
               display: inline-block;
-              font-weight: 400;
+              font-weight: 600;
               &:last-of-type() {
                 margin-left: 30px;
               }
