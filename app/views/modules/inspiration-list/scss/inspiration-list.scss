@@ -1,225 +1,290 @@
 .inspiration-list {
   position: relative;
 
-  ul {
-    list-style: none;
-    margin: 0;
+  .inspiration-list__filter {
+    background: $white;
+    box-shadow: 0 10px 40px 0 rgba($black, 0.08);
+    padding: 25px 40px;
 
-    li {
-      position: relative;
-      background: $white;
-      box-shadow: 0 10px 40px 0 rgba($black, 0.08);
-      margin-top: 15px;
-      padding: 25px 40px 25px 43px;
-      overflow: hidden;
-      transition: $transition;
-      &:hover {
-        padding-left: 90px;
-
-        .save {
-          width: 50px;
-          &:before {
-            opacity: 1;
-          }
-        }
-      }
-      &:first-child {
-        margin-top: 0;
-      }
-      &:before {
-        content: '';
-        position: absolute;
-        bottom: -40px;
-        left: -10px;
-        width: 150px;
-        height: 130px;
-        opacity: 0.03;
-      }
-
-      &.twitter {
-        &:before {
-          background: url('../assets/images/twitter.png') no-repeat;
-          background-position: center center;
-          background-size: contain;
+    h4 {
+      font-family: $font-primary;
+      font-weight: $font-semibold;
+      font-size: 18px;
+      color: $black;
+      margin-bottom: 20px;
+    }
+    form {
+      .option {
+        margin-top: 5px;
+        &:first-child {
+          margin-top: 0;
         }
 
-        .save {
-          background: $twitter;
+        input {
+          margin: 0;
         }
-        .intro {
-          span {
-            position: relative;
-            display: inline-block;
-            background: $twitter;
-            border-radius: 100px;
-            height: 14px;
-            width: 14px;
-            top: 2px;
-            margin-left: 4px;
+        label {
+          margin: 0 0 0 10px;
+          font-size: 14px;
+          color: $black;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+  .inspiration-list__message {
+    background: $white;
+    box-shadow: 0 10px 40px 0 rgba($black, 0.08);
+    padding: 40px;
+    text-align: center;
+
+    p {
+      font-size: 20px;
+      font-weight: $font-regular;
+      color: $black;
+      margin: 0;
+
+      b {
+        font-weight: $font-bold;
+      }
+    }
+  }
+  .inspiration-list__list {
+    // Filter function purpose
+    &.allekanalen {
+      ul li {
+        display: block;
+      }
+    }
+    &.twitter {
+      ul li.twitter {
+        display: block;
+      }
+    }
+    &.instagram {
+      ul li.instagram {
+        display: block;
+      }
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+
+      li {
+        display: none;
+        position: relative;
+        background: $white;
+        box-shadow: 0 10px 40px 0 rgba($black, 0.08);
+        margin-bottom: 15px;
+        padding: 25px 40px 25px 43px;
+        overflow: hidden;
+        transition: $transition;
+        &:hover {
+          padding-left: 90px;
+
+          .save {
+            width: 50px;
             &:before {
-              content: '';
-              position: absolute;
-              top: 0;
-              left: 0;
-              background: url('../assets/images/check.png') no-repeat;
-              background-position: center center;
-              background-size: 60%;
-              width: 100%;
-              height: 100%;
+              opacity: 1;
             }
           }
         }
-      }
-      &.instagram {
         &:before {
-          background: url('../assets/images/instagram.png') no-repeat;
-          background-position: center center;
-          background-size: contain;
+          content: '';
+          position: absolute;
+          bottom: -40px;
+          left: -10px;
+          width: 150px;
+          height: 130px;
+          opacity: 0.03;
+        }
+
+        &.twitter {
+          &:before {
+            background: url('../assets/images/twitter.png') no-repeat;
+            background-position: center center;
+            background-size: contain;
+          }
+
+          .save {
+            background: $twitter;
+          }
+          .intro {
+            span {
+              position: relative;
+              display: inline-block;
+              background: $twitter;
+              border-radius: 100px;
+              height: 14px;
+              width: 14px;
+              top: 2px;
+              margin-left: 4px;
+              &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: url('../assets/images/check.png') no-repeat;
+                background-position: center center;
+                background-size: 60%;
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+        }
+        &.instagram {
+          &:before {
+            background: url('../assets/images/instagram.png') no-repeat;
+            background-position: center center;
+            background-size: contain;
+          }
+
+          .save {
+            @include background(linear-gradient(#405DE6, $instagram, #F56040, #FFDC80) bottom no-repeat);
+          }
+          .top {
+            figure {
+              position: relative;
+              width: 40px;
+              border-radius: 100px;
+              background: $instagram;
+              &:before {
+                content: '#';
+                position: absolute;
+                top: 1px;
+                width: 100%;
+                left: 0;
+                height: 100%;
+                color: $white;
+                font-size: 26px;
+                font-weight: $font-semibold;
+                text-align: center;
+                line-height: 40px;
+              }
+            }
+          }
+          .message {
+            p {
+              width: calc(100% - 200px);
+              padding-right: 40px;
+              vertical-align: middle;
+            }
+          }
         }
 
         .save {
-          @include background(linear-gradient(#405DE6, $instagram, #F56040, #FFDC80) bottom no-repeat);
+          position: absolute;
+          top: 0;
+          height: 100%;
+          left: 0;
+          width: 3px;
+          transition: $transition;
+          &:before {
+            content: '';
+            position: absolute;
+            display: block;
+            opacity: 0;
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%, -50%));
+            width: 25px;
+            height: 25px;
+            background: url('../assets/images/star.png') no-repeat;
+            background-position: center center;
+            background-size: contain;
+            transition: $transition;
+            transition-duration: .25s;
+          }
         }
         .top {
+          float: left;
+          width: 100%;
+          margin-bottom: 20px;
+
           figure {
-            position: relative;
-            width: 40px;
-            border-radius: 100px;
-            background: $instagram;
-            &:before {
-              content: '#';
-              position: absolute;
-              top: 1px;
-              width: 100%;
-              left: 0;
+            margin: 0 15px 0 0;
+            display: inline-block;
+            height: 40px;
+
+            img {
               height: 100%;
-              color: $white;
-              font-size: 26px;
+              border-radius: 100px;
+            }
+          }
+          .intro {
+            float: left;
+
+            p {
+              font-size: 16px;
               font-weight: $font-semibold;
-              text-align: center;
+              color: $black;
               line-height: 40px;
+              display: inline-block;
+              margin-bottom: 0;
+              vertical-align: top;
+            }
+          }
+          .details {
+            float: right;
+            line-height: 40px;
+
+            > div {
+              display: inline-block;
+              font-weight: 400;
+              &:last-of-type() {
+                margin-left: 30px;
+              }
+              &:after {
+                content: '';
+                position: relative;
+                display: inline-block;
+                width: 30px;
+                height: 25px;
+                background: url('../assets/images/heart.png') no-repeat;
+                background-position: center center;
+                background-size: contain;
+                top: 7px;
+                margin-left: 10px;
+              }
+            }
+            .retweets {
+              &:after {
+                height: 20px;
+                background: url('../assets/images/retweet.png') no-repeat;
+                background-size: contain;
+                top: 6px;
+              }
+            }
+            .comments {
+              &:after {
+                height: 22px;
+                background: url('../assets/images/comments.png') no-repeat;
+                background-size: contain;
+                top: 5px;
+              }
             }
           }
         }
         .message {
-          p {
-            width: calc(100% - 200px);
-            padding-right: 40px;
-            vertical-align: middle;
-          }
-        }
-      }
-
-      .save {
-        position: absolute;
-        top: 0;
-        height: 100%;
-        left: 0;
-        width: 3px;
-        transition: $transition;
-        &:before {
-          content: '';
-          position: absolute;
-          display: block;
-          opacity: 0;
-          top: 50%;
-          left: 50%;
-          @include transform(translate(-50%, -50%));
-          width: 25px;
-          height: 25px;
-          background: url('../assets/images/star.png') no-repeat;
-          background-position: center center;
-          background-size: contain;
-          transition: $transition;
-          transition-duration: .25s;
-        }
-      }
-      .top {
-        float: left;
-        width: 100%;
-        margin-bottom: 20px;
-
-        figure {
-          margin: 0 15px 0 0;
-          display: inline-block;
-          height: 40px;
-
-          img {
-            height: 100%;
-            border-radius: 100px;
-          }
-        }
-        .intro {
-          float: left;
+          clear: both;
 
           p {
-            font-size: 16px;
-            font-weight: $font-semibold;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: $font-regular;
             color: $black;
-            line-height: 40px;
-            display: inline-block;
+            line-height: 23px;
             margin-bottom: 0;
-            vertical-align: top;
           }
-        }
-        .details {
-          float: right;
-          line-height: 40px;
-
-          > div {
+          figure {
+            margin: 0;
             display: inline-block;
-            font-weight: 400;
-            &:last-of-type() {
-              margin-left: 30px;
-            }
-            &:after {
-              content: '';
-              position: relative;
-              display: inline-block;
-              width: 30px;
-              height: 25px;
-              background: url('../assets/images/heart.png') no-repeat;
-              background-position: center center;
-              background-size: contain;
-              top: 7px;
-              margin-left: 10px;
-            }
-          }
-          .retweets {
-            &:after {
-              height: 20px;
-              background: url('../assets/images/retweet.png') no-repeat;
-              background-size: contain;
-              top: 6px;
-            }
-          }
-          .comments {
-            &:after {
-              height: 22px;
-              background: url('../assets/images/comments.png') no-repeat;
-              background-size: contain;
-              top: 5px;
-            }
-          }
-        }
-      }
-      .message {
-        clear: both;
 
-        p {
-          display: inline-block;
-          font-size: 14px;
-          font-weight: $font-regular;
-          color: $black;
-          line-height: 23px;
-          margin-bottom: 0;
-        }
-        figure {
-          margin: 0;
-          display: inline-block;
-
-          img {
-            width: 200px;
+            img {
+              width: 200px;
+            }
           }
         }
       }

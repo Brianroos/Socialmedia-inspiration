@@ -1,9 +1,12 @@
 // FUNC: Process the data collected from the API's
-function processData(array, listToProcess, minimalLikes) {
-  listToProcess.html('<p>Even geduld, jouw inspiratie wordt verzameld..</p>');
+function processData(array, listMessage, listToProcess, minimalLikes) {
+  listMessage.removeClass('hide').html('<p><b>Even geduld</b>, uw inspiratie wordt verzameld...</p>');
+  listToProcess.addClass('hide');
 
+  // Pause until all the data is collected
   $(document).ajaxStop(function() {
-    listToProcess.html('<ul></ul>');
+    listMessage.addClass('hide');
+    listToProcess.removeClass('hide').html('<ul></ul>');
 
     // Sort the data on total amount of likes/favorites/retweets
     array.sort(function(a, b) {
