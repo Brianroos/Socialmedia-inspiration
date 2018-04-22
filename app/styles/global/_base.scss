@@ -1,15 +1,21 @@
 $white: #FFFFFF;
-$black: #141414;
+$black: #000000;
+$grey: #F5F6F9;
+$border-grey: #EEF0F4;
+$blue: #5D82FF;
+$darkblue: #23334F;
 
 $twitter: #1DA1F2;
 $instagram: #C13584;
 
-$font-primary: 'Proxima Nova', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+$font-primary: 'Poppins', sans-serif;
 
-$font-regular: 300;
-$font-semibold: 400;
-$font-bold: 600;
-$font-extrabold: 800;
+$font-light: 300;
+$font-regular: 400;
+$font-medium: 500;
+$font-semibold: 600;
+$font-bold: 700;
 
 $transition: all .3s ease;
 $transition-ease: ease;
@@ -24,7 +30,7 @@ html, body {
   height: 100%;
 }
 body {
-  background: $white;
+  background: $grey;
   font-family: $font-primary;
-  color: $black;
+  color: $darkblue;
 }

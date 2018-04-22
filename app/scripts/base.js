@@ -4,6 +4,8 @@ $(function() {
   var listToProcess = $('.inspiration-list .inspiration-list__list');
   var ListToFilter = $('.inspiration-list .inspiration-list__filter');
 
+  updateDatetime();
+
   // connFacebook();
   connTwitter(arr, '%23journalistiek', 10);
   connInstagram(arr, 'journalistiek');
