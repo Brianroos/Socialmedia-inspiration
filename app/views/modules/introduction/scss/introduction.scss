@@ -1,0 +1,51 @@
+.introduction {
+  position: relative;
+  margin-bottom: 20px;
+
+  .row {
+    position: relative;
+    background: $white;
+    border-radius: 5px;
+    box-shadow: 0 0 40px 0 rgba($darkblue, 0.08);
+
+    .introduction__text {
+      padding: 50px 0 50px 50px;
+
+      h1 {
+        font-family: $font-primary;
+        font-weight: $font-bold;
+        font-size: 40px;
+        line-height: 40px;
+        color: $darkblue;
+        margin: 0 0 18px 0;
+      }
+      h2 {
+        font-family: $font-primary;
+        font-weight: $font-regular;
+        font-size: 19px;
+        line-height: 28px;
+        color: #9DA6BA;
+        margin: 0 0 30px 0;
+      }
+      blockquote {
+        font-size: 14px;
+        font-weight: 400;
+        color: $blue;
+        line-height: 23px;
+        margin: 0;
+        padding: 5px 0 5px 20px;
+        border-left: 1px solid $blue;
+      }
+    }
+    .introduction__buttons {
+      text-align: right;
+      padding: 50px 50px 50px 0;
+
+      .btn {
+        &:nth-child(2) {
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}
