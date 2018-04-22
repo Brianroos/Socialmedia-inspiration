@@ -7,6 +7,7 @@ function connTwitter(array, keywordToSearch, limit) {
     $.each(res.statuses, function(key, val) {
       var tweet = {
         type: 'twitter',
+        keyword: keywordToSearch,
         username: val.user.name,
         profileImage: val.user.profile_image_url_https,
         verified: val.user.verified,

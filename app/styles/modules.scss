@@ -1,21 +1,135 @@
+.breadcrumbs {
+  position: relative;
+  margin: 0 0 20px 0;
+
+  .breadcrumbs__phases {
+    position: relative;
+    background: $white;
+    border-radius: 5px;
+    text-align: center;
+    padding: 25px 0 18px;
+    box-shadow: 0 0 40px 0 rgba($darkblue, 0.08);
+
+    .breadcrumbs__back {
+      position: absolute;
+      top: 50%;
+      margin-top: -23px;
+      left: 25px;
+      color: $blue;
+      padding: 6px 20px 6px 8px;
+      &:hover {
+        color: $darkblue;
+        &:before {
+          background-color: $darkblue;
+        }
+      }
+      &:before {
+        content: '';
+        position: relative;
+        display: inline-block;
+        border-radius: 2px;
+        height: 28px;
+        width: 28px;
+        vertical-align: middle;
+        margin-right: 16px;
+        background: $blue url('../assets/images/arrow-left.png') no-repeat;
+        background-position: 10px 8px;
+        background-size: auto 12px;
+        transition: $transition;
+      }
+      span {
+        position: relative;
+        top: 1px;
+      }
+    }
+    ul {
+      position: relative;
+      display: inline-block;
+      list-style: none;
+      margin: 0;
+      &:before {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 12px;
+        border-top: 2px solid #6B7897;
+        left: 0;
+        width: 100%;
+      }
+
+      li {
+        position: relative;
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 400;
+        color: $darkblue;
+        line-height: 19px;
+        text-transform: none;
+        margin-left: 60px;
+        &:before {
+          content: '';
+          position: relative;
+          display: block;
+          margin: 0 auto 8px;
+          width: 26px;
+          height: 26px;
+          background: $white;
+          border: 2px solid #6B7897;
+          border-radius: 100px;
+          z-index: 1;
+        }
+        &:after {
+          display: none;
+        }
+        &:first-child,
+        &:last-of-type() {
+          &:after {
+            content: '';
+            position: absolute;
+            display: block;
+            top: 12px;
+            border-top: 2px solid $white;
+            right: 0;
+            width: 50%;
+            margin: 0;
+          }
+        }
+        &:first-child {
+          margin-left: 0;
+          &:after {
+            right: inherit;
+            left: 0;
+          }
+        }
+        &.current {
+          &:before {
+            background: #6B7897;
+          }
+        }
+      }
+    }
+  }
+}
+
 .inspiration-list {
   position: relative;
 
   .inspiration-list__filter {
     background: $white;
-    box-shadow: 0 10px 40px 0 rgba($black, 0.08);
-    padding: 25px 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 40px 0 rgba($darkblue, 0.08);
+    padding: 25px 50px;
 
     h4 {
       font-family: $font-primary;
-      font-weight: $font-bold;
-      font-size: 18px;
-      color: $black;
-      margin-bottom: 20px;
+      font-weight: $font-semibold;
+      font-size: 17px;
+      color: $darkblue;
+      margin-bottom: 25px;
     }
     form {
       .option {
-        margin-top: 5px;
+        margin-top: 4px;
         &:first-child {
           margin-top: 0;
         }
@@ -24,11 +138,11 @@
           margin: 0;
         }
         label {
-          margin: 0 0 0 10px;
+          margin: 0 0 0 15px;
           font-size: 14px;
-          color: $black;
+          color: $darkblue;
           font-weight: 300;
-          line-height: 22px;
+          line-height: 21px;
           vertical-align: top;
         }
       }
@@ -36,22 +150,27 @@
   }
   .inspiration-list__message {
     background: $white;
-    box-shadow: 0 10px 40px 0 rgba($black, 0.08);
-    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 40px 0 rgba($darkblue, 0.08);
+    margin-left: 20px;
+    padding: 50px;
     text-align: center;
 
     p {
-      font-size: 20px;
+      font-size: 19px;
+      line-height: 28px;
       font-weight: $font-regular;
-      color: $black;
+      color: $darkblue;
       margin: 0;
 
       b {
-        font-weight: $font-bold;
+        font-weight: $font-semibold;
       }
     }
   }
   .inspiration-list__list {
+    margin-left: 20px;
+
     // Filter function purpose
     &.allekanalen {
       ul li {
@@ -77,13 +196,14 @@
         display: none;
         position: relative;
         background: $white;
-        box-shadow: 0 10px 40px 0 rgba($black, 0.08);
-        margin-bottom: 15px;
-        padding: 25px 40px 25px 43px;
+        border-radius: 5px;
+        box-shadow: 0 0 40px 0 rgba($darkblue, 0.08);
+        margin-bottom: 20px;
+        padding: 25px 50px 25px 53px;
         overflow: hidden;
         transition: $transition;
         &:hover {
-          padding-left: 90px;
+          padding-left: 100px;
 
           .save {
             width: 50px;
@@ -99,7 +219,7 @@
           left: -10px;
           width: 150px;
           height: 130px;
-          opacity: 0.03;
+          opacity: 0.04;
         }
 
         &.twitter {
@@ -118,9 +238,9 @@
               display: inline-block;
               background: $twitter;
               border-radius: 100px;
-              height: 14px;
-              width: 14px;
-              top: 2px;
+              height: 13px;
+              width: 13px;
+              top: 1px;
               margin-left: 4px;
               &:before {
                 content: '';
@@ -128,8 +248,8 @@
                 top: 0;
                 left: 0;
                 background: url('../assets/images/check.png') no-repeat;
-                background-position: center center;
-                background-size: 60%;
+                background-position: 3px 4px;
+                background-size: auto 6px;
                 width: 100%;
                 height: 100%;
               }
@@ -144,7 +264,7 @@
           }
 
           .save {
-            @include background(linear-gradient(#405DE6, $instagram, #F56040, #FFDC80) bottom no-repeat);
+            @include background(linear-gradient(to bottom, #405DE6, $instagram, #F56040, #FFDC80));
           }
           .top {
             figure {
@@ -157,11 +277,11 @@
                 position: absolute;
                 top: 1px;
                 width: 100%;
-                left: 0;
+                left: 1px;
                 height: 100%;
                 color: $white;
-                font-size: 26px;
-                font-weight: $font-semibold;
+                font-size: 24px;
+                font-weight: $font-regular;
                 text-align: center;
                 line-height: 40px;
               }
@@ -220,9 +340,9 @@
 
             p {
               font-size: 16px;
-              font-weight: $font-bold;
-              color: $black;
-              line-height: 38px;
+              font-weight: $font-semibold;
+              color: $darkblue;
+              line-height: 40px;
               display: inline-block;
               margin-bottom: 0;
               vertical-align: top;
@@ -230,13 +350,14 @@
           }
           .details {
             float: right;
-            line-height: 38px;
+            line-height: 40px;
 
             > div {
               display: inline-block;
-              font-weight: 600;
+              font-weight: $font-semibold;
+              color: $darkblue;
               &:last-of-type() {
-                margin-left: 30px;
+                margin-left: 35px;
               }
               &:after {
                 content: '';
@@ -253,14 +374,16 @@
             }
             .retweets {
               &:after {
+                width: 33px;
                 height: 20px;
                 background: url('../assets/images/retweet.png') no-repeat;
                 background-size: contain;
-                top: 6px;
+                top: 4px;
               }
             }
             .comments {
               &:after {
+                width: 28px;
                 height: 22px;
                 background: url('../assets/images/comments.png') no-repeat;
                 background-size: contain;
@@ -276,7 +399,7 @@
             display: inline-block;
             font-size: 14px;
             font-weight: $font-regular;
-            color: $black;
+            color: $darkblue;
             line-height: 23px;
             margin-bottom: 0;
           }
@@ -290,6 +413,206 @@
           }
         }
       }
+    }
+  }
+}
+
+.introduction {
+  position: relative;
+  margin-bottom: 20px;
+
+  .row {
+    position: relative;
+    background: $white;
+    border-radius: 5px;
+    box-shadow: 0 0 40px 0 rgba($darkblue, 0.08);
+
+    .introduction__text {
+      padding: 50px 0 50px 50px;
+
+      h1 {
+        font-family: $font-primary;
+        font-weight: $font-bold;
+        font-size: 40px;
+        line-height: 40px;
+        color: $darkblue;
+        margin: 0 0 18px 0;
+      }
+      h2 {
+        font-family: $font-primary;
+        font-weight: $font-regular;
+        font-size: 19px;
+        line-height: 28px;
+        color: #9DA6BA;
+        margin: 0 0 30px 0;
+      }
+      blockquote {
+        font-size: 14px;
+        font-weight: 400;
+        color: $blue;
+        line-height: 23px;
+        margin: 0;
+        padding: 5px 0 5px 20px;
+        border-left: 1px solid $blue;
+      }
+    }
+    .introduction__buttons {
+      text-align: right;
+      padding: 50px 50px 50px 0;
+
+      .btn {
+        &:nth-child(2) {
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}
+
+.navigation {
+  position: relative;
+  background: $white;
+  border-bottom: 1px solid $border-grey;
+  margin-bottom: 40px;
+  padding: 15px 0;
+  box-shadow: 0 0 40px 0 rgba($darkblue, 0.08);
+
+  .logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: $darkblue;
+    line-height: 40px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    margin-right: 50px;
+    padding-right: 25px;
+    &:after {
+      content: '';
+      position: absolute;
+      border-left: 1px solid $border-grey;
+      top: 5px;
+      bottom: 5px;
+      right: 0;
+    }
+  }
+  nav {
+    display: inline-block;
+
+    ul {
+      list-style: none;
+      margin: 0;
+
+      li {
+        display: inline-block;
+        margin-left: 35px;
+        &:first-child {
+          margin-left: 0;
+        }
+        &.active {
+          a {
+            &:after {
+              border-color: $blue;
+              opacity: 1;
+            }
+            span {
+              color: $blue;
+            }
+          }
+        }
+        &:hover {
+          a {
+            &:after {
+              opacity: 1;
+            }
+          }
+        }
+
+        a {
+          position: relative;
+          display: block;
+          &:after {
+            content: '';
+            position: absolute;
+            border-top: 2px solid #6B7897;
+            bottom: -16px;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            transition: $transition;
+            transition-duration: .25s;
+          }
+          img {
+            position: relative;
+            top: 0px;
+            height: 20px;
+            width: auto;
+            vertical-align: middle;
+            margin-right: 10px;
+            &.home {
+              top: -2px;
+            }
+            &.search {
+              top: -1px;
+            }
+          }
+          span {
+            font-size: 14px;
+            font-weight: 600;
+            color: $darkblue;
+            line-height: 40px;
+          }
+        }
+      }
+    }
+  }
+  .profile {
+    position: relative;
+    display: inline-block;
+    float: right;
+    &:hover {
+      &:after {
+        opacity: 1;
+      }
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      border-top: 2px solid #6B7897;
+      bottom: -16px;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transition: $transition;
+      transition-duration: .25s;
+    }
+
+    img {
+      height: 36px;
+      width: 36px;
+      border-radius: 5px;
+      vertical-align: middle;
+      margin-right: 10px;
+      border: 2px solid $border-grey;
+    }
+    span {
+      font-size: 14px;
+      font-weight: 600;
+      color: $darkblue;
+      line-height: 40px;
+    }
+  }
+  .datetime {
+    display: inline-block;
+    float: right;
+    margin-right: 50px;
+
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      color: $darkblue;
+      line-height: 40px;
+      margin: 0;
     }
   }
 }

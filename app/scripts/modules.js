@@ -44,6 +44,7 @@ function connTwitter(array, keywordToSearch, limit) {
     $.each(res.statuses, function(key, val) {
       var tweet = {
         type: 'twitter',
+        keyword: keywordToSearch,
         username: val.user.name,
         profileImage: val.user.profile_image_url_https,
         verified: val.user.verified,
@@ -94,7 +95,7 @@ function filterData(array, ListToFilter, listMessage, listToProcess) {
 
     // Check for no filters selected
     if(selectedOptions.length === 0) {
-      listMessage.removeClass('hide').html('<p>Selecteer een optie aan de linkerkant op uw inspiratie weer te geven.</p>');
+      listMessage.removeClass('hide').html('<p>Selecteer een optie aan de linkerkant om uw inspiratie weer te geven.</p>');
       listToProcess.addClass('hide');
     }
     // Check for defaultOption to be included in the selectedOptions array
@@ -181,4 +182,28 @@ function processData(array, listMessage, listToProcess, minimalLikes) {
       }
     });
   });
+}
+
+// FUNC: Show the current date and time
+function updateDatetime() {
+  var div = $('.navigation .datetime');
+
+  var d = new Date();
+  var months = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'];
+  var time = checkZero(d.getHours()) + ':' + checkZero(d.getMinutes());
+
+  var date = [d.getDate(), months[d.getMonth()], d.getFullYear()].join(' ');
+  div.html('<p>'+ [date, time].join(' / ') +'</p>');
+
+  // Repeat function every second
+  setTimeout(updateDatetime, 1000);
+
+  // FUNC: Check if current digit is lower than 10, if so add a zero
+  function checkZero(d) {
+    if(d < 10) {
+      d = '0' + d;
+    }
+
+    return d;
+  }
 }

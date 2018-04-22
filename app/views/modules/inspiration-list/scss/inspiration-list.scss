@@ -3,19 +3,20 @@
 
   .inspiration-list__filter {
     background: $white;
-    box-shadow: 0 10px 40px 0 rgba($black, 0.08);
-    padding: 25px 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 40px 0 rgba($darkblue, 0.08);
+    padding: 25px 50px;
 
     h4 {
       font-family: $font-primary;
-      font-weight: $font-bold;
-      font-size: 18px;
-      color: $black;
-      margin-bottom: 20px;
+      font-weight: $font-semibold;
+      font-size: 17px;
+      color: $darkblue;
+      margin-bottom: 25px;
     }
     form {
       .option {
-        margin-top: 5px;
+        margin-top: 4px;
         &:first-child {
           margin-top: 0;
         }
@@ -24,11 +25,11 @@
           margin: 0;
         }
         label {
-          margin: 0 0 0 10px;
+          margin: 0 0 0 15px;
           font-size: 14px;
-          color: $black;
+          color: $darkblue;
           font-weight: 300;
-          line-height: 22px;
+          line-height: 21px;
           vertical-align: top;
         }
       }
@@ -36,22 +37,27 @@
   }
   .inspiration-list__message {
     background: $white;
-    box-shadow: 0 10px 40px 0 rgba($black, 0.08);
-    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 40px 0 rgba($darkblue, 0.08);
+    margin-left: 20px;
+    padding: 50px;
     text-align: center;
 
     p {
-      font-size: 20px;
+      font-size: 19px;
+      line-height: 28px;
       font-weight: $font-regular;
-      color: $black;
+      color: $darkblue;
       margin: 0;
 
       b {
-        font-weight: $font-bold;
+        font-weight: $font-semibold;
       }
     }
   }
   .inspiration-list__list {
+    margin-left: 20px;
+
     // Filter function purpose
     &.allekanalen {
       ul li {
@@ -77,13 +83,14 @@
         display: none;
         position: relative;
         background: $white;
-        box-shadow: 0 10px 40px 0 rgba($black, 0.08);
-        margin-bottom: 15px;
-        padding: 25px 40px 25px 43px;
+        border-radius: 5px;
+        box-shadow: 0 0 40px 0 rgba($darkblue, 0.08);
+        margin-bottom: 20px;
+        padding: 25px 50px 25px 53px;
         overflow: hidden;
         transition: $transition;
         &:hover {
-          padding-left: 90px;
+          padding-left: 100px;
 
           .save {
             width: 50px;
@@ -99,7 +106,7 @@
           left: -10px;
           width: 150px;
           height: 130px;
-          opacity: 0.03;
+          opacity: 0.04;
         }
 
         &.twitter {
@@ -118,9 +125,9 @@
               display: inline-block;
               background: $twitter;
               border-radius: 100px;
-              height: 14px;
-              width: 14px;
-              top: 2px;
+              height: 13px;
+              width: 13px;
+              top: 1px;
               margin-left: 4px;
               &:before {
                 content: '';
@@ -128,8 +135,8 @@
                 top: 0;
                 left: 0;
                 background: url('../assets/images/check.png') no-repeat;
-                background-position: center center;
-                background-size: 60%;
+                background-position: 3px 4px;
+                background-size: auto 6px;
                 width: 100%;
                 height: 100%;
               }
@@ -144,7 +151,7 @@
           }
 
           .save {
-            @include background(linear-gradient(#405DE6, $instagram, #F56040, #FFDC80) bottom no-repeat);
+            @include background(linear-gradient(to bottom, #405DE6, $instagram, #F56040, #FFDC80));
           }
           .top {
             figure {
@@ -157,11 +164,11 @@
                 position: absolute;
                 top: 1px;
                 width: 100%;
-                left: 0;
+                left: 1px;
                 height: 100%;
                 color: $white;
-                font-size: 26px;
-                font-weight: $font-semibold;
+                font-size: 24px;
+                font-weight: $font-regular;
                 text-align: center;
                 line-height: 40px;
               }
@@ -220,9 +227,9 @@
 
             p {
               font-size: 16px;
-              font-weight: $font-bold;
-              color: $black;
-              line-height: 38px;
+              font-weight: $font-semibold;
+              color: $darkblue;
+              line-height: 40px;
               display: inline-block;
               margin-bottom: 0;
               vertical-align: top;
@@ -230,13 +237,14 @@
           }
           .details {
             float: right;
-            line-height: 38px;
+            line-height: 40px;
 
             > div {
               display: inline-block;
-              font-weight: 600;
+              font-weight: $font-semibold;
+              color: $darkblue;
               &:last-of-type() {
-                margin-left: 30px;
+                margin-left: 35px;
               }
               &:after {
                 content: '';
@@ -253,14 +261,16 @@
             }
             .retweets {
               &:after {
+                width: 33px;
                 height: 20px;
                 background: url('../assets/images/retweet.png') no-repeat;
                 background-size: contain;
-                top: 6px;
+                top: 4px;
               }
             }
             .comments {
               &:after {
+                width: 28px;
                 height: 22px;
                 background: url('../assets/images/comments.png') no-repeat;
                 background-size: contain;
@@ -276,7 +286,7 @@
             display: inline-block;
             font-size: 14px;
             font-weight: $font-regular;
-            color: $black;
+            color: $darkblue;
             line-height: 23px;
             margin-bottom: 0;
           }

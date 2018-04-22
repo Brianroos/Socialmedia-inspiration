@@ -34,7 +34,7 @@ function filterData(array, ListToFilter, listMessage, listToProcess) {
 
     // Check for no filters selected
     if(selectedOptions.length === 0) {
-      listMessage.removeClass('hide').html('<p>Selecteer een optie aan de linkerkant op uw inspiratie weer te geven.</p>');
+      listMessage.removeClass('hide').html('<p>Selecteer een optie aan de linkerkant om uw inspiratie weer te geven.</p>');
       listToProcess.addClass('hide');
     }
     // Check for defaultOption to be included in the selectedOptions array
