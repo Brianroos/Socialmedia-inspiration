@@ -1,0 +1,30 @@
+.btn {
+  position: relative;
+  display: inline-block;
+  background: $blue;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: $font-semibold;
+  color: $white;
+  line-height: 22px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  letter-spacing: 1.2px;
+  text-decoration: none !important;
+  transition: $transition;
+  &:hover {
+    background: #4067E8;
+    color: $white;
+  }
+
+  &.second {
+    background: $white;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    border: 1px solid $border-grey;
+    color: $blue;
+    &:hover {
+      color: $darkblue;
+    }
+  }
+}
