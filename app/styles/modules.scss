@@ -523,9 +523,14 @@
   background: $white;
   border-bottom: 1px solid $border-grey;
   margin-bottom: 40px;
-  padding: 15px 0;
   box-shadow: 0 0 40px 0 rgba($darkblue, 0.08);
 
+  .row {
+    padding: 15px 5px;
+    &:first-child {
+      border-bottom: 1px solid $border-grey;
+    }
+  }
   .logo {
     font-size: 18px;
     font-weight: $font-bold;
@@ -536,14 +541,6 @@
     position: relative;
     margin-right: 50px;
     padding-right: 25px;
-    &:after {
-      content: '';
-      position: absolute;
-      border-left: 1px solid $border-grey;
-      top: 5px;
-      bottom: 5px;
-      right: 0;
-    }
   }
   nav {
     display: inline-block;
@@ -554,7 +551,7 @@
 
       li {
         display: inline-block;
-        margin-left: 35px;
+        margin-left: 40px;
         &:first-child {
           margin-left: 0;
         }
@@ -601,7 +598,7 @@
             &.home {
               top: -2px;
             }
-            &.search {
+            &.search, &.post {
               top: -1px;
             }
           }
@@ -654,7 +651,7 @@
   .datetime {
     display: inline-block;
     float: right;
-    margin-right: 50px;
+    margin-right: 60px;
 
     p {
       font-size: 14px;

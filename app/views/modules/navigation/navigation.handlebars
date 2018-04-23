@@ -1,21 +1,34 @@
 <div class="navigation">
   <div class="row">
-    <div class="columns large-17">
+    <div class="columns large-12">
       <a class="logo">Logo</a>
-      <nav>
-        <ul>
-          <li><a href="#"><img class="home" src="assets/images/home.png" alt="Home"><span>Home</span></a></li>
-          <li><a href="#"><img class="user" src="assets/images/user.png" alt="Bedrijfsprofiel"><span>Bedrijfsprofiel</span></a></li>
-          <li class="active"><a href="#"><img class="search" src="assets/images/search.png" alt="Nieuwe zoekopdracht"><span>Nieuwe zoekopdracht</span></a></li>
-        </ul>
-      </nav>
     </div>
-    <div class="columns large-7 end">
+    <div class="columns large-12 end">
       <a class="profile">
         <img src="assets/images/hackastory.jpg" alt="Hackastory">
         <span>Hackastory</span>
       </a>
       <div class="datetime"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns">
+      <nav>
+        <ul>
+          {{#if search}}
+          <li><a href="#"><img class="home" src="assets/images/home.png" alt="Home"><span>Home</span></a></li>
+          <li><a href="#"><img class="user" src="assets/images/user.png" alt="Bedrijfsprofiel"><span>Bedrijfsprofiel</span></a></li>
+          <li class="active"><a href="#"><img class="search" src="assets/images/search-active.png" alt="Nieuwe zoekopdracht"><span>Nieuwe zoekopdracht</span></a></li>
+          <li><a href="#"><img class="post" src="assets/images/post.png" alt="Nieuwe post"><span>Nieuwe post</span></a></li>
+          {{/if}}
+          {{#if newpost}}
+          <li><a href="#"><img class="home" src="assets/images/home.png" alt="Home"><span>Home</span></a></li>
+          <li><a href="#"><img class="user" src="assets/images/user.png" alt="Bedrijfsprofiel"><span>Bedrijfsprofiel</span></a></li>
+          <li><a href="#"><img class="search" src="assets/images/search.png" alt="Nieuwe zoekopdracht"><span>Nieuwe zoekopdracht</span></a></li>
+          <li class="active"><a href="#"><img class="post" src="assets/images/post-active.png" alt="Nieuwe post"><span>Nieuwe post</span></a></li>
+          {{/if}}
+        </ul>
+      </nav>
     </div>
   </div>
 </div>
