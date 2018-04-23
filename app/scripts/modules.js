@@ -93,13 +93,8 @@ function filterData(array, ListToFilter, listMessage, listToProcess) {
       selectedOptions.push($(target)[0].target);
     }
 
-    // Check for no filters selected
-    if(selectedOptions.length === 0) {
-      listMessage.removeClass('hide').html('<p>Selecteer een optie aan de linkerkant om uw inspiratie weer te geven.</p>');
-      listToProcess.addClass('hide');
-    }
     // Check for defaultOption to be included in the selectedOptions array
-    else if(selectedOptions.includes(defaultOption)) {
+    if(selectedOptions.includes(defaultOption)) {
       listMessage.addClass('hide');
       listToProcess.removeClass('hide');
 
@@ -136,16 +131,38 @@ function filterData(array, ListToFilter, listMessage, listToProcess) {
       listToProcess.addClass(val.id);
       // Rest of the function contains CSS
     });
+
+    // Check for every listitem if they are visible
+    var countBlock = 0;
+    $.each(listToProcess.find('li'), function(key, val) {
+      if($(val).css('display') == 'block') {
+        countBlock++;
+      }
+    });
+
+    // Reset classes
+    listMessage.addClass('hide');
+    listToProcess.removeClass('hide');
+
+    // If none, show message to inform
+    if(listMessage.hasClass('hide') && countBlock == 0) {
+      listMessage.removeClass('hide').html('<p>Selecteer een (extra) optie aan de linkerkant om uw inspiratie weer te geven.</p>');
+      listToProcess.addClass('hide');
+    }
   }
 }
 
 // FUNC: Process the data collected from the API's
-function processData(array, listMessage, listToProcess, minimalLikes) {
+function processData(array, listTitle, listMessage, listToProcess, minimalLikes) {
+  var searchedKeywords = [];
+
+  listTitle.addClass('hide');
   listMessage.removeClass('hide').html('<p><b>Even geduld</b>, uw inspiratie wordt verzameld...</p>');
   listToProcess.addClass('hide');
 
   // Pause until all the data is collected
   $(document).ajaxStop(function() {
+    listTitle.removeClass('hide');
     listMessage.addClass('hide');
     listToProcess.removeClass('hide').html('<ul></ul>');
 
@@ -165,12 +182,16 @@ function processData(array, listMessage, listToProcess, minimalLikes) {
             verified = '<span></span>';
           }
 
+          searchedKeywords.push(val.keyword.split('%23')[1]);
+
           // Output Twitter
           var item = '<li class="item twitter"><a href="#" class="save"></a><div class="top">'+
             '<div class="intro"><figure><img src="'+ val.profileImage +'" alt="'+ val.username +'"></figure><p>'+ val.username + verified +'</p></div>'+
             '<div class="details"><div class="retweets">'+ val.retweetCount +'</div><div class="favorites">'+ val.favoriteCount +'</div></div>'+
             '</div><div class="message"><p>'+ val.text +'</p></div></li>';
         } else if(val.type == 'instagram') {
+          searchedKeywords.push(val.hashtag);
+
           // Output Instagram
           var item = '<li class="item instagram"><a href="#" class="save"></a><div class="top">'+
             '<div class="intro"><figure></figure><p>'+ val.hashtag +'</p></div>'+
@@ -180,6 +201,18 @@ function processData(array, listMessage, listToProcess, minimalLikes) {
 
         listToProcess.find('ul').append(item);
       }
+    });
+
+    // Collect al the searched keywords and check for duplicates
+    var uniqueSearchedKeywords = [];
+    $.each(searchedKeywords, function(key, val) {
+      if($.inArray(val, uniqueSearchedKeywords) === -1) {
+        uniqueSearchedKeywords.push(val);
+      }
+    });
+    // Output each searched keyword
+    $.each(uniqueSearchedKeywords, function(key, val) {
+      listTitle.find('h3').append('<span>'+ val +'</span>');
     });
   });
 }

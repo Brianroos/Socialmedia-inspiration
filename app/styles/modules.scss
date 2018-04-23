@@ -61,7 +61,7 @@
         position: relative;
         display: inline-block;
         font-size: 12px;
-        font-weight: 400;
+        font-weight: $font-regular;
         color: $darkblue;
         line-height: 19px;
         text-transform: none;
@@ -141,9 +141,44 @@
           margin: 0 0 0 15px;
           font-size: 14px;
           color: $darkblue;
-          font-weight: 300;
+          font-weight: $font-light;
           line-height: 21px;
           vertical-align: top;
+        }
+      }
+    }
+  }
+  .inspiration-list__title {
+    margin: 15px 0 30px 20px;
+
+    h3 {
+      font-family: $font-primary;
+      font-weight: $font-regular;
+      font-size: 24px;
+      color: $darkblue;
+      line-height: 38px;
+      margin-bottom: 0;
+
+      span {
+        display: inline-block;
+        font-weight: $font-semibold;
+        &:first-child {
+          &:before {
+            content: '“';
+          }
+        }
+        &:last-of-type() {
+          &:after {
+            content: '.”';
+          }
+        }
+        &.before,
+        &:after {
+          position: relative;
+          display: inline-block;
+        }
+        &:after {
+          content: ',\00a0';
         }
       }
     }
@@ -448,7 +483,7 @@
       }
       blockquote {
         font-size: 14px;
-        font-weight: 400;
+        font-weight: $font-regular;
         color: $blue;
         line-height: 23px;
         margin: 0;
@@ -479,7 +514,7 @@
 
   .logo {
     font-size: 18px;
-    font-weight: 700;
+    font-weight: $font-bold;
     color: $darkblue;
     line-height: 40px;
     display: inline-block;
@@ -558,7 +593,7 @@
           }
           span {
             font-size: 14px;
-            font-weight: 600;
+            font-weight: $font-semibold;
             color: $darkblue;
             line-height: 40px;
           }
@@ -597,7 +632,7 @@
     }
     span {
       font-size: 14px;
-      font-weight: 600;
+      font-weight: $font-semibold;
       color: $darkblue;
       line-height: 40px;
     }
@@ -609,7 +644,7 @@
 
     p {
       font-size: 14px;
-      font-weight: 400;
+      font-weight: $font-regular;
       color: $darkblue;
       line-height: 40px;
       margin: 0;

@@ -28,9 +28,44 @@
           margin: 0 0 0 15px;
           font-size: 14px;
           color: $darkblue;
-          font-weight: 300;
+          font-weight: $font-light;
           line-height: 21px;
           vertical-align: top;
+        }
+      }
+    }
+  }
+  .inspiration-list__title {
+    margin: 15px 0 30px 20px;
+
+    h3 {
+      font-family: $font-primary;
+      font-weight: $font-regular;
+      font-size: 24px;
+      color: $darkblue;
+      line-height: 38px;
+      margin-bottom: 0;
+
+      span {
+        display: inline-block;
+        font-weight: $font-semibold;
+        &:first-child {
+          &:before {
+            content: '“';
+          }
+        }
+        &:last-of-type() {
+          &:after {
+            content: '.”';
+          }
+        }
+        &.before,
+        &:after {
+          position: relative;
+          display: inline-block;
+        }
+        &:after {
+          content: ',\00a0';
         }
       }
     }
