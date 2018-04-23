@@ -65,19 +65,7 @@
         color: $darkblue;
         line-height: 19px;
         text-transform: none;
-        margin-left: 60px;
-        &:before {
-          content: '';
-          position: relative;
-          display: block;
-          margin: 0 auto 8px;
-          width: 26px;
-          height: 26px;
-          background: $white;
-          border: 2px solid #6B7897;
-          border-radius: 100px;
-          z-index: 1;
-        }
+        margin-left: 80px;
         &:after {
           display: none;
         }
@@ -102,8 +90,34 @@
           }
         }
         &.current {
-          &:before {
+          span {
             background: #6B7897;
+            &:before {
+              display: none;
+            }
+          }
+        }
+
+        span {
+          position: relative;
+          display: block;
+          margin: 0 auto 8px;
+          width: 26px;
+          height: 26px;
+          background: $white;
+          border: 2px solid #6B7897;
+          border-radius: 100px;
+          z-index: 1;
+          &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: url('../assets/images/check-breadcrumbs.png') no-repeat;
+            background-position: 6px 7px;
+            background-size: auto 9px;
+            width: 100%;
+            height: 100%;
           }
         }
       }
