@@ -2,11 +2,20 @@
   <div class="row">
     <div class="columns">
       <div class="breadcrumbs__phases">
-        <a class="breadcrumbs__back btn second"><span>Terug naar home</span></a>
+        <a class="breadcrumbs__back btn second" href="#"><span>Terug naar home</span></a>
         <ul>
-          <li><span></span>Bedrijfsprofiel</li>
-          <li><span></span>Zoekvoorkeuren</li>
+          {{#if search}}
+          <li class="done"><span></span>Bedrijfsprofiel</li>
+          <li class="done"><span></span>Zoekvoorkeuren</li>
           <li class="current"><span></span>Inspiratiebronnen</li>
+          {{/if}}
+          {{#if newpost}}
+          <li class="current"><span></span>Nieuwe post</li>
+          <li class="sub"><span></span>Kanaal</li>
+          <li class="sub"><span></span>Type post</li>
+          <li class="sub"><span></span>Content creatie</li>
+          <li><span></span>Ideale post</li>
+          {{/if}}
         </ul>
       </div>
     </div>
