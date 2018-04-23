@@ -32,13 +32,8 @@ function filterData(array, ListToFilter, listMessage, listToProcess) {
       selectedOptions.push($(target)[0].target);
     }
 
-    // Check for no filters selected
-    if(selectedOptions.length === 0) {
-      listMessage.removeClass('hide').html('<p>Selecteer een optie aan de linkerkant om uw inspiratie weer te geven.</p>');
-      listToProcess.addClass('hide');
-    }
     // Check for defaultOption to be included in the selectedOptions array
-    else if(selectedOptions.includes(defaultOption)) {
+    if(selectedOptions.includes(defaultOption)) {
       listMessage.addClass('hide');
       listToProcess.removeClass('hide');
 
@@ -75,5 +70,23 @@ function filterData(array, ListToFilter, listMessage, listToProcess) {
       listToProcess.addClass(val.id);
       // Rest of the function contains CSS
     });
+
+    // Check for every listitem if they are visible
+    var countBlock = 0;
+    $.each(listToProcess.find('li'), function(key, val) {
+      if($(val).css('display') == 'block') {
+        countBlock++;
+      }
+    });
+
+    // Reset classes
+    listMessage.addClass('hide');
+    listToProcess.removeClass('hide');
+
+    // If none, show message to inform
+    if(listMessage.hasClass('hide') && countBlock == 0) {
+      listMessage.removeClass('hide').html('<p>Selecteer een (extra) optie aan de linkerkant om uw inspiratie weer te geven.</p>');
+      listToProcess.addClass('hide');
+    }
   }
 }
