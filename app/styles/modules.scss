@@ -97,7 +97,7 @@
               }
             }
           }
-          
+
           span {
             &:before {
               content: '';
@@ -119,7 +119,7 @@
         }
         &.sub {
           margin-top: 3px;
-          margin-left: 50px;
+          margin-left: 40px;
 
           span {
             width: 20px;
@@ -315,10 +315,11 @@
         margin-bottom: 20px;
         padding: 25px 50px 25px 53px;
         overflow: hidden;
-        transition: $transition;
         &:hover {
-          padding-left: 100px;
-
+          .top .intro,
+          .message {
+            left: 50px;
+          }
           .save {
             width: 50px;
             &:before {
@@ -367,6 +368,12 @@
                 width: 100%;
                 height: 100%;
               }
+            }
+          }
+          .message {
+            p {
+              width: calc(100% - 100px);
+              padding-right: 40px;
             }
           }
         }
@@ -451,6 +458,9 @@
           }
           .intro {
             float: left;
+            position: relative;
+            left: 0;
+            transition: $transition;
 
             p {
               font-size: 16px;
@@ -508,6 +518,9 @@
         }
         .message {
           clear: both;
+          position: relative;
+          left: 0;
+          transition: $transition;
 
           p {
             display: inline-block;
@@ -588,13 +601,12 @@
   background: $white;
   border-bottom: 1px solid $border-grey;
   margin-bottom: 40px;
+  padding: 15px 0;
   box-shadow: 0 0 40px 0 rgba($darkblue, 0.08);
+  z-index: 1;
 
   .row {
-    padding: 15px 5px;
-    &:first-child {
-      border-bottom: 1px solid $border-grey;
-    }
+    padding: 0 5px;
   }
   .logo {
     font-size: 18px;
@@ -606,6 +618,14 @@
     position: relative;
     margin-right: 50px;
     padding-right: 25px;
+    &:after {
+      content: '';
+      position: absolute;
+      border-left: 1px solid $border-grey;
+      top: 5px;
+      bottom: 5px;
+      right: 0;
+    }
   }
   nav {
     display: inline-block;
@@ -682,20 +702,16 @@
     display: inline-block;
     float: right;
     &:hover {
-      &:after {
-        opacity: 1;
+      span {
+        &:after {
+          @include transform(rotate(-180deg));
+        }
       }
-    }
-    &:after {
-      content: '';
-      position: absolute;
-      border-top: 2px solid #6B7897;
-      bottom: -16px;
-      left: 0;
-      width: 100%;
-      opacity: 0;
-      transition: $transition;
-      transition-duration: .25s;
+      .submenu {
+        padding-top: 45px;
+        opacity: 1;
+        visibility: visible;
+      }
     }
 
     img {
@@ -711,12 +727,90 @@
       font-weight: $font-semibold;
       color: $darkblue;
       line-height: 40px;
+      &:after {
+        content: '';
+        position: relative;
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin-left: 10px;
+        vertical-align: middle;
+        top: -1px;
+        background: url('../assets/images/dropdown.png') no-repeat;
+        background-position: center;
+        background-size: auto 5px;
+        transition: $transition;
+      }
+    }
+    .submenu {
+      position: absolute;
+      top: 0;
+      right: -12px;
+      padding-top: 41px;
+      opacity: 0;
+      visibility: hidden;
+      transition: $transition;
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 4px 20px;
+        background: $white;
+        border-radius: 5px;
+        box-shadow: 0 0 40px 0 rgba($darkblue, 0.08);
+
+        li {
+          display: inline-block;
+          width: 100%;
+          padding: 8px 0;
+          border-top: 1px solid $border-grey;
+          &:first-child {
+            border-top: none;
+          }
+          &.user {
+            a {
+              &:before {
+                background: url('../assets/images/user.png') no-repeat;
+                background-position: center;
+                background-size: auto 20px;
+              }
+            }
+          }
+
+          a, a span {
+            font-size: 14px;
+            font-weight: $font-semibold;
+            color: $darkblue;
+            line-height: 28px;
+            white-space: nowrap;
+            display: inline-block;
+            transition: $transition;
+            &:after {
+              display: none;
+            }
+            &:hover {
+              color: $blue;
+            }
+          }
+          a {
+            &:before {
+              content: '';
+              position: relative;
+              display: inline-block;
+              width: 26px;
+              height: 26px;
+              margin-right: 15px;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
     }
   }
   .datetime {
     display: inline-block;
     float: right;
-    margin-right: 60px;
+    margin-right: 50px;
 
     p {
       font-size: 14px;
