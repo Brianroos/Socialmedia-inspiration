@@ -11,8 +11,10 @@
   border-radius: 5px;
   letter-spacing: 1.2px;
   text-decoration: none !important;
+  text-align: center;
+  min-width: 120px;
   transition: $transition;
-  &:hover {
+  &:hover, &:focus {
     background: #4067E8;
     color: $white;
   }
@@ -26,5 +28,12 @@
     &:hover {
       color: $darkblue;
     }
+  }
+  &.disabled {
+    cursor: none;
+    pointer-events: none;
+    background: $grey;
+    color: $darkblue;
+    opacity: 0.8;
   }
 }

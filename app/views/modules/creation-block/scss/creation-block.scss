@@ -1,0 +1,45 @@
+.creation-block {
+  position: relative;
+
+  .creation-block__filter {
+    background: $white;
+    border-radius: 5px;
+    box-shadow: 0 0 40px 0 rgba($darkblue, 0.08);
+    padding: 25px 50px;
+
+    h4 {
+      font-family: $font-primary;
+      font-weight: $font-medium;
+      font-size: 17px;
+      color: $darkblue;
+      margin-top: 35px;
+      margin-bottom: 25px;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    form {
+      .option {
+        margin-top: 4px;
+        &:first-child {
+          margin-top: 0;
+        }
+
+        input {
+          margin: 0;
+        }
+        label {
+          margin: 0 0 0 15px;
+          font-size: 14px;
+          color: $darkblue;
+          font-weight: $font-light;
+          line-height: 22px;
+          vertical-align: top;
+        }
+      }
+    }
+    .btn {
+      margin-top: 35px;
+    }
+  }
+}
