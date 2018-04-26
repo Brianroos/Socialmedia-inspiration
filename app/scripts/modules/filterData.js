@@ -8,6 +8,11 @@ function filterData(array, ListToFilter, listMessage, listToProcess) {
   $(document).ajaxStop(function() {
     ListToFilter.find('form').removeClass('hide');
 
+    // Clickhandler to close/open each filtertab
+    ListToFilter.find('ul li span').on('click', function() {
+      $(this).parent().toggleClass('opened');
+    });
+
     $.each(options, function(key, val) {
       if(val.id == 'allekanalen') {
         defaultOption = val;

@@ -1,40 +1,6 @@
 .inspiration-list {
   position: relative;
 
-  .inspiration-list__filter {
-    background: $white;
-    border-radius: 5px;
-    box-shadow: 0 0 40px 0 rgba($darkblue, 0.08);
-    padding: 25px 50px;
-
-    h4 {
-      font-family: $font-primary;
-      font-weight: $font-medium;
-      font-size: 17px;
-      color: $darkblue;
-      margin-bottom: 25px;
-    }
-    form {
-      .option {
-        margin-top: 4px;
-        &:first-child {
-          margin-top: 0;
-        }
-
-        input {
-          margin: 0;
-        }
-        label {
-          margin: 0 0 0 15px;
-          font-size: 14px;
-          color: $darkblue;
-          font-weight: $font-light;
-          line-height: 22px;
-          vertical-align: top;
-        }
-      }
-    }
-  }
   .inspiration-list__title {
     margin: 15px 0 30px 20px;
 
@@ -70,26 +36,6 @@
       }
     }
   }
-  .inspiration-list__message {
-    background: $white;
-    border-radius: 5px;
-    box-shadow: 0 0 40px 0 rgba($darkblue, 0.08);
-    margin-left: 20px;
-    padding: 50px;
-    text-align: center;
-
-    p {
-      font-size: 19px;
-      line-height: 28px;
-      font-weight: $font-regular;
-      color: $darkblue;
-      margin: 0;
-
-      b {
-        font-weight: $font-semibold;
-      }
-    }
-  }
   .inspiration-list__list {
     margin-left: 20px;
 
@@ -109,6 +55,7 @@
         display: block;
       }
     }
+    // END: Filter function purpose
 
     ul {
       list-style: none;

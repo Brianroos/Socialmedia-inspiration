@@ -1,6 +1,6 @@
 <?php
   $compiler = include('compiler.php');
-  $data['title'] = 'Index';
+  $data['title'] = 'inspiration';
   $data['search'] = true;
 
   $data['introductionTitle'] = 'Inspiratiebronnen';

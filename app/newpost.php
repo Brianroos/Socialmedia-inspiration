@@ -1,6 +1,6 @@
 <?php
   $compiler = include('compiler.php');
-  $data['title'] = 'Index';
+  $data['title'] = 'creation';
   $data['newpost'] = true;
 
   $data['introductionTitle'] = 'Uw ideale post';

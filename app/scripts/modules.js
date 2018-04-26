@@ -69,6 +69,11 @@ function filterData(array, ListToFilter, listMessage, listToProcess) {
   $(document).ajaxStop(function() {
     ListToFilter.find('form').removeClass('hide');
 
+    // Clickhandler to close/open each filtertab
+    ListToFilter.find('ul li span').on('click', function() {
+      $(this).parent().toggleClass('opened');
+    });
+
     $.each(options, function(key, val) {
       if(val.id == 'allekanalen') {
         defaultOption = val;
@@ -153,19 +158,19 @@ function filterData(array, ListToFilter, listMessage, listToProcess) {
 }
 
 // FUNC: Create a skeleton as a result of the chosen options within the filter
-function postCreation() {
-  console.log('postCreation func!');
-
-  var ListToFilter = $('.creation-block__filter')
-  var confirmBtn = $('.creation-block .confirm.btn');
+function postCreation(breadcrumbs, ListToFilter, listMessage, listToCreate) {
   var inputs = ListToFilter.find('form input');
   var postOptions = [];
 
-  // Handlers
-  inputs.on('change', updateFilter);
-  confirmBtn.on('click', combineData);
+  // Clickhandler to close/open each filtertab
+  ListToFilter.find('ul li span').on('click', function() {
+    $(this).parent().toggleClass('opened');
+  });
 
-  // On change ..
+  // ChangeHandler when filter is used/changed
+  inputs.on('change', updateFilter);
+
+  // FUNC: Updates filter and selection of skeletons after every usage of the filter
   function updateFilter() {
     postOptions = [];
     var countKanalen = 0;
@@ -189,25 +194,41 @@ function postCreation() {
       }
     });
 
-    // Enable/disable confirmBtn
-    if(countKanalen > 0 && countBerichttypes > 0) {
-      confirmBtn.removeClass('disabled');
+    // Check/uncheck a specific breadcrumb
+    if(countKanalen > 0) {
+      changeBreadcrumb('Kanalen', 1);
     } else {
-      confirmBtn.addClass('disabled');
+      changeBreadcrumb('Kanalen', 0);
+    }
+    if(countBerichttypes > 0) {
+      changeBreadcrumb('Type post', 1);
+    } else {
+      changeBreadcrumb('Type post', 0);
+    }
+
+    // Check if minimal amount of required inputs is selected, if so create the skeleton(s)
+    if(countKanalen > 0 && countBerichttypes > 0) {
+      listMessage.addClass('hide');
+
+      createSkeleton();
+    } else {
+      listMessage.removeClass('hide');
     }
   }
 
-  // On click ..
-  function combineData() {
-    var postType = $.grep(postOptions, function(val, key) {
-      return val.type != 'berichttype';
-    }, true)[0].value;
-
-    $.each(postOptions, function(key, val) {
-      if(val.type !== 'berichttype') {
-        // Creatie van het geraamte aan de hand van de gekozen optie(s)
+  // FUNC: Change/check the state of the specific breadcrumb after every usage of the filter
+  function changeBreadcrumb(string, boolean) {
+    $.each(breadcrumbs.find('li:contains('+ string +')'), function(key, val) {
+      if(boolean != 0) {
+        $(val).addClass('done');
+      } else {
+        $(val).removeClass('done');
       }
     });
+  }
+
+  // FUNC: Creates a skeleton to fill in on basis of the selected (required) inputs
+  function createSkeleton() {
   }
 }
 
