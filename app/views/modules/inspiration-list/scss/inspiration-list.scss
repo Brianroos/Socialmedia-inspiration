@@ -10,6 +10,7 @@
       font-size: 24px;
       color: $darkblue;
       line-height: 38px;
+      letter-spacing: 0.2px;
       margin-bottom: 0;
 
       span {
@@ -85,7 +86,7 @@
         &:before {
           content: '';
           position: absolute;
-          bottom: -40px;
+          bottom: -50px;
           left: -10px;
           width: 150px;
           height: 130px;
@@ -222,6 +223,7 @@
               font-weight: $font-semibold;
               color: $darkblue;
               line-height: 40px;
+              letter-spacing: 0.2px;
               display: inline-block;
               margin-bottom: 0;
               vertical-align: top;
@@ -235,6 +237,7 @@
               display: inline-block;
               font-weight: $font-semibold;
               color: $darkblue;
+              letter-spacing: 0.2px;
               &:last-of-type() {
                 margin-left: 35px;
               }
@@ -283,6 +286,7 @@
             font-weight: $font-regular;
             color: $darkblue;
             line-height: 23px;
+            letter-spacing: 0.2px;
             margin-bottom: 0;
           }
           figure {
@@ -291,6 +295,7 @@
 
             img {
               width: 200px;
+              border-radius: 5px;
             }
           }
         }
