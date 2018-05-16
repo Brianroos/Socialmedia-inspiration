@@ -173,6 +173,7 @@
 
 .creation-block {
   position: relative;
+  margin-bottom: 20px;
 
   .creation-block__guidance {
     background: $darkblue;
@@ -248,7 +249,7 @@
           height: 130px;
           opacity: 0.04;
         }
-        
+
         &.twitter {
           &:before {
             background: $twitter;
@@ -272,7 +273,7 @@
         &.checked {
           .options {
             max-height: 100px;
-            transition: max-height .4s ease 0s;
+            transition: max-height .5s ease 0s;
           }
         }
 
@@ -315,6 +316,12 @@
                 background-position: center;
                 background-size: auto 20px;
               }
+
+              span {
+                &:after {
+                  content: '\00a0/\00a0';
+                }
+              }
             }
 
             p {
@@ -325,8 +332,18 @@
               letter-spacing: 0.2px;
               margin: 0;
 
-              b {
+              span {
                 font-weight: $font-semibold;
+                &:last-of-type() {
+                  &:after {
+                    content: '';
+                  }
+                }
+                &:after {
+                  content: ',\00a0';
+                  position: relative;
+                  display: inline-block;
+                }
               }
             }
           }
@@ -499,7 +516,7 @@
           overflow: hidden;
           z-index: 1;
           max-height: 0;
-          transition: max-height .4s ease 0s;
+          transition: max-height .5s ease 0s;
 
           .options__content {
             margin-top: 25px;
@@ -544,7 +561,7 @@
                   height: 10px;
                   margin-left: 10px;
                   vertical-align: middle;
-                  top: -1px;
+                  top: -2px;
                   background: url('../assets/images/dropdown.png') no-repeat;
                   background-position: center;
                   background-size: auto 5px;
@@ -567,8 +584,8 @@
                   color: $darkblue;
                   letter-spacing: 0.2px;
                   height: 40px;
-                  line-height: 40px;
-                  top: 1px;
+                  line-height: 42px;
+                  top: -1px;
                 }
               }
             }
@@ -581,6 +598,7 @@
 
 .inspiration-list {
   position: relative;
+  margin-bottom: 20px;
 
   .inspiration-list__title {
     margin: 15px 0 30px 20px;
