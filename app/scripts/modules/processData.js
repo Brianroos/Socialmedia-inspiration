@@ -60,5 +60,8 @@ function processData(array, listTitle, listMessage, listToProcess, minimalLikes)
     $.each(uniqueSearchedKeywords, function(key, val) {
       listTitle.find('h3').append('<span>'+ val +'</span>');
     });
+
+    // For every post the "save" option for later purposes
+    savePost(listToProcess.find('.item .save'));
   });
 }
