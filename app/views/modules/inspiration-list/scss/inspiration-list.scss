@@ -72,12 +72,17 @@
         margin-bottom: 20px;
         padding: 25px 50px 25px 53px;
         overflow: hidden;
-        left: 0;
-        opacity: 1;
-        visibility: visible;
-        max-height: 450px;
-        transition: left .5s ease 0s, opacity .5s ease 0s, visibility .5s ease 0s, max-height .4s ease-in-out .35s, margin .3s ease-out .35s, padding .3s ease-out .35s;
-        &:hover {
+        &:before {
+          content: '';
+          position: absolute;
+          bottom: -50px;
+          left: -10px;
+          width: 150px;
+          height: 130px;
+          opacity: 0.04;
+        }
+        &:hover,
+        &.saved {
           .top .intro,
           .message {
             left: 50px;
@@ -89,24 +94,14 @@
             }
           }
         }
-        &:before {
-          content: '';
-          position: absolute;
-          bottom: -50px;
-          left: -10px;
-          width: 150px;
-          height: 130px;
-          opacity: 0.04;
-        }
-
         &.saved {
-          pointer-events: none;
-          left: 100px;
-          opacity: 0;
-          visibility: hidden;
-          max-height: 0;
-          margin: 0;
-          padding: 0;
+          .save {
+            &:before {
+              background: url('../assets/images/check-post.png') no-repeat;
+              background-position: center center;
+              background-size: contain;
+            }
+          }
         }
 
         &.twitter {

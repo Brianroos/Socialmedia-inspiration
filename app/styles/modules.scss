@@ -231,6 +231,8 @@
         margin-bottom: 20px;
         padding: 25px 50px 25px 53px;
         overflow: hidden;
+        max-height: 600px;
+        @include transition(max-height .6s ease-in-out 0s, margin-bottom .4s ease-in-out .2s, padding .4s ease-in-out .2s);
         &:before {
           content: '';
           position: absolute;
@@ -275,6 +277,11 @@
             max-height: 100px;
             transition: max-height .5s ease 0s;
           }
+        }
+        &.saved {
+          margin-bottom: 0;
+          padding: 0 50px 0 53px;
+          max-height: 0;
         }
 
         .guidelines {
@@ -359,6 +366,7 @@
                 line-height: 23px;
                 letter-spacing: 0.2px;
                 margin-top: 16px;
+                transition: $transition;
                 &:first-child {
                   margin-top: 0;
                 }
@@ -374,6 +382,7 @@
                   background: url('../assets/images/check-guidelines.png') no-repeat;
                   background-position: center;
                   background-size: contain;
+                  transition: $transition;
                 }
                 &.checked {
                   color: $darkblue;
@@ -409,7 +418,7 @@
               float: none;
             }
             textarea, input {
-              margin: 0 0 40px 0;
+              margin: 0 0 25px 0;
               padding: 0;
               background: $white;
               border: none;
@@ -427,7 +436,7 @@
               &:-moz-placeholder {color: rgba($darkblue, 0.75);}
             }
             textarea {
-              resize: vertical;
+              resize: none;
               padding: 10px 20px;
               min-height: 100px;
               line-height: 26px;
@@ -454,7 +463,7 @@
                 line-height: 23px;
                 letter-spacing: 0.2px;
                 padding: 3px 14px;
-                margin-left: 1px;
+                margin-right: 4px;
                 margin-bottom: 5px;
               }
             }
@@ -670,12 +679,17 @@
         margin-bottom: 20px;
         padding: 25px 50px 25px 53px;
         overflow: hidden;
-        left: 0;
-        opacity: 1;
-        visibility: visible;
-        max-height: 450px;
-        transition: left .5s ease 0s, opacity .5s ease 0s, visibility .5s ease 0s, max-height .4s ease-in-out .35s, margin .3s ease-out .35s, padding .3s ease-out .35s;
-        &:hover {
+        &:before {
+          content: '';
+          position: absolute;
+          bottom: -50px;
+          left: -10px;
+          width: 150px;
+          height: 130px;
+          opacity: 0.04;
+        }
+        &:hover,
+        &.saved {
           .top .intro,
           .message {
             left: 50px;
@@ -687,24 +701,14 @@
             }
           }
         }
-        &:before {
-          content: '';
-          position: absolute;
-          bottom: -50px;
-          left: -10px;
-          width: 150px;
-          height: 130px;
-          opacity: 0.04;
-        }
-
         &.saved {
-          pointer-events: none;
-          left: 100px;
-          opacity: 0;
-          visibility: hidden;
-          max-height: 0;
-          margin: 0;
-          padding: 0;
+          .save {
+            &:before {
+              background: url('../assets/images/check-post.png') no-repeat;
+              background-position: center center;
+              background-size: contain;
+            }
+          }
         }
 
         &.twitter {
