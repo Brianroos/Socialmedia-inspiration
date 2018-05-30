@@ -58,6 +58,8 @@
         margin-bottom: 20px;
         padding: 25px 50px 25px 53px;
         overflow: hidden;
+        max-height: 600px;
+        @include transition(max-height .6s ease-in-out 0s, margin-bottom .4s ease-in-out .2s, padding .4s ease-in-out .2s);
         &:before {
           content: '';
           position: absolute;
@@ -102,6 +104,11 @@
             max-height: 100px;
             transition: max-height .5s ease 0s;
           }
+        }
+        &.saved {
+          margin-bottom: 0;
+          padding: 0 50px 0 53px;
+          max-height: 0;
         }
 
         .guidelines {
@@ -186,6 +193,7 @@
                 line-height: 23px;
                 letter-spacing: 0.2px;
                 margin-top: 16px;
+                transition: $transition;
                 &:first-child {
                   margin-top: 0;
                 }
@@ -201,6 +209,7 @@
                   background: url('../assets/images/check-guidelines.png') no-repeat;
                   background-position: center;
                   background-size: contain;
+                  transition: $transition;
                 }
                 &.checked {
                   color: $darkblue;
@@ -236,7 +245,7 @@
               float: none;
             }
             textarea, input {
-              margin: 0 0 40px 0;
+              margin: 0 0 25px 0;
               padding: 0;
               background: $white;
               border: none;
@@ -254,7 +263,7 @@
               &:-moz-placeholder {color: rgba($darkblue, 0.75);}
             }
             textarea {
-              resize: vertical;
+              resize: none;
               padding: 10px 20px;
               min-height: 100px;
               line-height: 26px;
@@ -281,7 +290,7 @@
                 line-height: 23px;
                 letter-spacing: 0.2px;
                 padding: 3px 14px;
-                margin-left: 1px;
+                margin-right: 4px;
                 margin-bottom: 5px;
               }
             }
