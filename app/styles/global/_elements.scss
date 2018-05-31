@@ -90,7 +90,7 @@
           opacity: 1;
           visibility: visible;
           padding-bottom: 20px;
-          transition: height 0.25s ease-out, opacity 0.25s ease-out 0.2s, visibility 0.25s ease-out 0.2s, padding-bottom 0.25s ease-out;
+          @include transition(height 0.25s ease-out, opacity 0.25s ease-out 0.2s, visibility 0.25s ease-out 0.2s, padding-bottom 0.25s ease-out);
         }
       }
 
@@ -137,7 +137,7 @@
         opacity: 0;
         visibility: hidden;
         margin: 0 24px;
-        transition: height 0.25s ease-out, opacity 0.1s ease-out, visibility 0.1s ease-out, padding-bottom 0.25s ease-out;
+        @include transition(height 0.25s ease-out, opacity 0.1s ease-out, visibility 0.1s ease-out, padding-bottom 0.25s ease-out);
 
         .option {
           height: 22px;

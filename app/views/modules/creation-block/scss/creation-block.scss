@@ -102,7 +102,7 @@
         &.checked {
           .options {
             max-height: 100px;
-            transition: max-height .5s ease 0s;
+            @include transition(max-height .5s ease 0s);
           }
         }
         &.saved {
@@ -352,7 +352,7 @@
           overflow: hidden;
           z-index: 1;
           max-height: 0;
-          transition: max-height .5s ease 0s;
+          @include transition(max-height .5s ease 0s);
 
           .options__content {
             margin-top: 25px;
